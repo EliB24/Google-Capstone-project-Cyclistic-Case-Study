@@ -477,7 +477,7 @@ data_count_day_of_week %>% ggplot(aes(x = day_of_week, y = count, fill = type)) 
              y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
-![Number of rides by User type and Day of week](Images/Number of rides by User type and Day of week.png)
+![Number of rides by User type and Day of week](Images/Number_of_rides_by_User_type_and_Day_of_week.png)
 ```{r}
 data_part_of_day %>% ggplot(aes(x = part_of_day, y = count, fill = type)) + 
   geom_col(position = "dodge") +
