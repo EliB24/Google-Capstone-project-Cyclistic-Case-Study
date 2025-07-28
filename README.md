@@ -557,8 +557,45 @@ When breaking down rides into hourly duration brackets, the majority of both mem
 
 ## Share  
 **[Cyclistic Data Analysis Dashboards](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysisdashboard/key)**  
+
 ![Tableau Dashboards](Images/Dashboards.png)
 
 **[Cycistic Data Analysis Story Presenation](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysis_17532718573550/Cyclisticbike-shareAnalysis)**  
+
 ![Tableau Story Presentation](Images/story_presentation.png)
+
+
+## Act  
+**Conclusion**
+* *User Types:*   
+Members take more rides overall, while casual users take longer rides on average
+
+* *Time Patterns:*   
+Members are most active on weekdays during commute hours; casual users ride mostly on weekends and afternoons
+
+* *Seasonality:*   
+Ride volume peaks in summer and drops in winter for both groups
+
+* *Rideable Types:*   
+Classic bikes are the most used by both members and casuals
+
+* *Behavioral Insight:*   
+Members likely use bikes for commuting; casual users for leisure or tourism
+
+
+**Recommendations:**  
+***Save money fast***   
+If a casual user rides about 4 times each month, the yearly pass pays for itself in under 5 months
+
+***Bikes always waiting***   
+Keep some bikes and e‑bikes only for members during busy weekend hours, so they never show up to an empty rack
+
+***Perks they care about***   
+Give members longer free ride time, free guest passes, and discounts at parks or events—perfect for leisure trips
+
+***No extra e‑bike fees***   
+Fold the usual e‑bike surcharge into the membership, so frequent renters stop piling up add‑on costs
+ 
+***Season‑only option***   
+Offer a 6‑ or 9‑month pass that covers the warm‑weather riding season; lower upfront price feels easier to try
 
