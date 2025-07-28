@@ -401,6 +401,7 @@ colnames(duration_vs_day_mean) <- c("type","day_of_week","duration_secs_mean")
 duration_vs_day_median <- data.frame(aggregate(summary_casual_member$ride_duration_secs ~ summary_casual_member$member_casual + summary_casual_member$day_of_week, FUN = median))
 colnames(duration_vs_day_median) <- c("type","day_of_week","duration_secs_median")
 ```
+![Ride duration by User type and Day of week](Images/ride_duration.png)
 Reshape the dataset from wide to long format so that each row corresponds to a user type (casual or member) and a count value. This is necessary for grouped visualizations (e.g., ggplot with fill = type)
 ```{r}
 data_count_day_of_week <- data_count_day_of_week %>%
