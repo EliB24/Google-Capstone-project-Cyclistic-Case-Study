@@ -401,7 +401,12 @@ colnames(duration_vs_day_mean) <- c("type","day_of_week","duration_secs_mean")
 duration_vs_day_median <- data.frame(aggregate(summary_casual_member$ride_duration_secs ~ summary_casual_member$member_casual + summary_casual_member$day_of_week, FUN = median))
 colnames(duration_vs_day_median) <- c("type","day_of_week","duration_secs_median")
 ```
+Casual users have, on average, longer ride durations than members. This is consistent with expectations: members, being habitual users, likely use the service for short, routine trips (e.g., commuting), whereas casual users engage more in leisure rides or tourism, which tend to last longer. However, the higher variability and longer tails in casuals’ ride duration distributions also suggest lower predictability in their behavior
+
+To account for this skewed distribution, median ride durations are also compared. The gap remains, confirming that the difference is not due to outliers but reflects a systematic behavioral distinction
+
 ![Ride duration by User type and Day of week](Images/ride_duration.png)
+
 Reshape the dataset from wide to long format so that each row corresponds to a user type (casual or member) and a count value. This is necessary for grouped visualizations (e.g., ggplot with fill = type)
 ```{r}
 data_count_day_of_week <- data_count_day_of_week %>%
@@ -470,6 +475,7 @@ member_casual_piechart
 ```
 ![Members VS Casuals percentage](Images/members_casuals_piechart.png)
 Generate multiple bar charts comparing: Rides by weekday; Rides by part of day; Rides by ride type; Rides by month; Rides by duration bracket (with and without log scale)  
+
 ```{r}
 data_count_day_of_week %>% ggplot(aes(x = day_of_week, y = count, fill = type)) + 
   geom_col(position = "dodge") + 
@@ -487,6 +493,10 @@ data_part_of_day %>% ggplot(aes(x = part_of_day, y = count, fill = type)) +
          y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+Temporal usage patterns reveal that casual riders are most active on weekends, with a significant peak on Saturdays and Sundays. In contrast, members show a more even distribution, with a strong presence on weekdays, especially Monday to Friday. This likely reflects commuting behavior among members versus leisure usage among casuals
+
+The time-of-day breakdown reinforces this pattern: casuals are more active in the afternoon and evening, while members’ activity is concentrated during morning and late afternoon hours, consistent with standard workday commuting windows
+
 ![Number of rides by User type and Part of day](Images/Number_of_rides_by_User_type_and_Part_of_day.png)
 ```{r}
 data_rideable_type %>% ggplot(aes(x = rideable_type, y = count, fill = type)) + 
@@ -496,7 +506,9 @@ data_rideable_type %>% ggplot(aes(x = rideable_type, y = count, fill = type)) +
              y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+Both casual users and members show a clear preference for electric bikes, which dominate total ride counts across both user types. This likely reflects the convenience and speed advantage of electric bikes, especially in an urban setting like Chicago
 ![Number of rides by User type and Rideable type](Images/Number_of_rides_by_User_type_and_Rideable_type.png)
+
 ```{r}
 data_stat_month %>% ggplot(aes(x = month, y = count, fill = type)) + 
   geom_col(position = "dodge") + 
@@ -505,7 +517,10 @@ data_stat_month %>% ggplot(aes(x = month, y = count, fill = type)) +
              y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+Monthly ride counts show strong seasonal effects for both groups, with peaks in summer months and declines in winter. However, casual riders’ activity is much more sensitive to seasonality, with winter months showing drastic reductions. Members, on the other hand, demonstrate a more stable year-round usage, again suggesting functional use independent of weather or tourism cycles
+
 ![Number of rides by User type and Month](Images/Number_of_rides_by_User_type_and_Month.png)
+
 ```{r}
 ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   geom_col(position = "dodge") +
@@ -514,7 +529,18 @@ ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   scale_fill_manual(values = c("members" = "#6495ED", "casuals" = "#66CDAA")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+The standard (linear) bar chart shows that the vast majority of trips fall into the shorter duration brackets, particularly between 0 and 1 hour. However, there are still non-negligible numbers of rides extending into higher-duration brackets—up to 25 hours. These longer rides are rare in absolute terms but still present.
+
+Because of this extreme skewness in the data, the linear scale compresses the bars for higher durations almost to zero, making it impossible to visually interpret their relative frequency
+
+By using a logarithmic scale, the graph rescales the y-axis so that each order of magnitude (e.g. 10, 100, 1000) gets equal spacing
+
+This allows both short and long duration brackets to be visible and compared in a meaningful way
+
+Thus, the log scale does not distort the data, but instead makes the full range of durations interpretable, especially when comparing member vs casual user behavior across all duration brackets
+
 ![Number of rides by User type and Number of hours](Images/Number_of_rides_by_User_type_and_Number_of_hours.png)
+
 ```{r}
 ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   geom_col(position = "dodge") +
@@ -524,4 +550,6 @@ ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+When breaking down rides into hourly duration brackets, the majority of both member and casual rides fall within the 0–1 hour range, but the distribution for casual users is more spread out, with notable presence in longer durations. Members’ rides are tightly concentrated under 60 minutes. This validates the conclusion that members use bikes for short, targeted purposes while casuals tend toward exploratory or extended rides
+
 ![Number of rides by User type and Number of hours](Images/Number_of_rides_by_User_type_and_Number_of_hours_log.png)
