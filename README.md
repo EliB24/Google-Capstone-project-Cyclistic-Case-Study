@@ -553,3 +553,12 @@ ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
 When breaking down rides into hourly duration brackets, the majority of both member and casual rides fall within the 0–1 hour range, but the distribution for casual users is more spread out, with notable presence in longer durations. Members’ rides are tightly concentrated under 60 minutes. This validates the conclusion that members use bikes for short, targeted purposes while casuals tend toward exploratory or extended rides
 
 ![Number of rides by User type and Number of hours](Images/Number_of_rides_by_User_type_and_Number_of_hours_log.png)
+
+
+## Share  
+**[Cyclistic Data Analysis Dashboards](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysisdashboard/key)**
+![Tableau Dashboards](2025-07-28_20-00-22.png)
+
+**[Cycistic Data Analysis Story Presenation](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysis_17532718573550/Cyclisticbike-shareAnalysis)**  
+![Tableau Story Presentation](2025-07-28_20-01-32.png)
+
