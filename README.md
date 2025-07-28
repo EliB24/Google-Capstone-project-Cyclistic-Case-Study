@@ -557,8 +557,8 @@ When breaking down rides into hourly duration brackets, the majority of both mem
 
 ## Share  
 **[Cyclistic Data Analysis Dashboards](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysisdashboard/key)**  
-![Tableau Dashboards](Dashboards.png)
+![Tableau Dashboards](Images/Dashboards.png)
 
 **[Cycistic Data Analysis Story Presenation](https://public.tableau.com/app/profile/elizaveta.barabash/viz/Cyclisticbike-shareAnalysis_17532718573550/Cyclisticbike-shareAnalysis)**  
-![Tableau Story Presentation](Story_presentation.png)
+![Tableau Story Presentation](Images/story_presentation.png)
 
