@@ -486,6 +486,7 @@ data_part_of_day %>% ggplot(aes(x = part_of_day, y = count, fill = type)) +
          y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+![Number of rides by User type and Part of day](Images/Number of rides by User type and Part of day.png)
 ```{r}
 data_rideable_type %>% ggplot(aes(x = rideable_type, y = count, fill = type)) + 
   geom_col(position = "dodge") + 
@@ -494,6 +495,7 @@ data_rideable_type %>% ggplot(aes(x = rideable_type, y = count, fill = type)) +
              y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+![Number of rides by User type and Rideable type](Images/Number of rides by User type andd Rideable type.png)
 ```{r}
 data_stat_month %>% ggplot(aes(x = month, y = count, fill = type)) + 
   geom_col(position = "dodge") + 
@@ -502,6 +504,7 @@ data_stat_month %>% ggplot(aes(x = month, y = count, fill = type)) +
              y = "Number of rides", fill = "User type") +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA"))
 ```
+![Number of rides by User type and Month](Images/Number of rides by User type and Month.png)
 ```{r}
 ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   geom_col(position = "dodge") +
@@ -510,6 +513,7 @@ ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   scale_fill_manual(values = c("members" = "#6495ED", "casuals" = "#66CDAA")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
 ```{r}
 ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   geom_col(position = "dodge") +
@@ -519,3 +523,4 @@ ggplot(stat_hours, aes(x = `number of hours`, y = count, fill = type)) +
   scale_fill_manual(values = c("member" = "#6495ED", "casual" = "#66CDAA")) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+![Number of rides by User type and Number of hours](Images/Number of rides by User type and Number of hours(log scale).png)
