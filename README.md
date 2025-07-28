@@ -467,7 +467,7 @@ member_casual_piechart <- plotly::layout(
     yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
 member_casual_piechart  
 ```
-![Members VS Casuals percentage](members_casuals_piechart.png)
+![Members VS Casuals percentage](Images/members_casuals_piechart.png)
 Generate multiple bar charts comparing: Rides by weekday; Rides by part of day; Rides by ride type; Rides by month; Rides by duration bracket (with and without log scale)  
 ```{r}
 data_count_day_of_week %>% ggplot(aes(x = day_of_week, y = count, fill = type)) + 
